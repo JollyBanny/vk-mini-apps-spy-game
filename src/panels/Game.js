@@ -53,7 +53,7 @@ const Game = props => {
 		if(players.length !== history.length) {
 			startGame()
 		}
-		setRemaningTime(60 * players.length / 60)
+		setRemaningTime(60 * players.length)
 	}, [])
 
 	useEffect(() => {
