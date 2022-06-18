@@ -12,7 +12,7 @@ const Game = props => {
 	const { players, history, place } = useSelector(({ lobby }) => lobby);
 
 	let flashlightInterval;
-	const [remaningTime, setRemaningTime] = useState(5);
+	const [remaningTime, setRemaningTime] = useState(60);
 	const [isCounting, setIsCounting] = useState(false);
 
 	const [gameMode, setGameMode] = useState(false);
@@ -51,7 +51,6 @@ const Game = props => {
 
 	useEffect(() => {
 		let interval = setInterval(() => {
-			console.log("ok");
 			isCounting &&
 				setRemaningTime(remaningTime - 1)
 			},1000)
@@ -59,7 +58,6 @@ const Game = props => {
 		if(remaningTime === 0) {
 			clearInterval(interval)
 			flashlightInterval = setInterval(async () => {
-					console.log("ok");
 					let flashInfo = await bridge.send("VKWebAppFlashGetInfo").then((data) => data);
 					bridge.send('VKWebAppFlashSetLevel', {level: flashInfo?.level ? 0 : 1});
 			}, 1000)
