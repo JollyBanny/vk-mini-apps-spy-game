@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.js": "/static/js/main.dc633eef.chunk.js",
-    "main.js.map": "/static/js/main.dc633eef.chunk.js.map",
-    "runtime-main.js": "/static/js/runtime-main.cf1a3862.js",
-    "runtime-main.js.map": "/static/js/runtime-main.cf1a3862.js.map",
-    "static/css/2.170ca112.chunk.css": "/static/css/2.170ca112.chunk.css",
-    "static/js/2.b72ae9c5.chunk.js": "/static/js/2.b72ae9c5.chunk.js",
-    "static/js/2.b72ae9c5.chunk.js.map": "/static/js/2.b72ae9c5.chunk.js.map",
-    "index.html": "/index.html",
-    "static/css/2.170ca112.chunk.css.map": "/static/css/2.170ca112.chunk.css.map",
-    "static/js/2.b72ae9c5.chunk.js.LICENSE.txt": "/static/js/2.b72ae9c5.chunk.js.LICENSE.txt"
+    "main.js": "/vk-mini-apps-spy-game/static/js/main.dc633eef.chunk.js",
+    "main.js.map": "/vk-mini-apps-spy-game/static/js/main.dc633eef.chunk.js.map",
+    "runtime-main.js": "/vk-mini-apps-spy-game/static/js/runtime-main.77e06247.js",
+    "runtime-main.js.map": "/vk-mini-apps-spy-game/static/js/runtime-main.77e06247.js.map",
+    "static/css/2.170ca112.chunk.css": "/vk-mini-apps-spy-game/static/css/2.170ca112.chunk.css",
+    "static/js/2.b72ae9c5.chunk.js": "/vk-mini-apps-spy-game/static/js/2.b72ae9c5.chunk.js",
+    "static/js/2.b72ae9c5.chunk.js.map": "/vk-mini-apps-spy-game/static/js/2.b72ae9c5.chunk.js.map",
+    "index.html": "/vk-mini-apps-spy-game/index.html",
+    "static/css/2.170ca112.chunk.css.map": "/vk-mini-apps-spy-game/static/css/2.170ca112.chunk.css.map",
+    "static/js/2.b72ae9c5.chunk.js.LICENSE.txt": "/vk-mini-apps-spy-game/static/js/2.b72ae9c5.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.cf1a3862.js",
+    "static/js/runtime-main.77e06247.js",
     "static/css/2.170ca112.chunk.css",
     "static/js/2.b72ae9c5.chunk.js",
     "static/js/main.dc633eef.chunk.js"
