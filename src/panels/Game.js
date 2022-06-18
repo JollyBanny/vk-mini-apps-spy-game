@@ -11,8 +11,8 @@ import { Icon24ClockOutline } from '@vkontakte/icons';
 const Game = props => {
 	const { players, history, place } = useSelector(({ lobby }) => lobby);
 
-	let flashlightInterval;
-	const [remaningTime, setRemaningTime] = useState(60);
+	let flashlightInterval, timerInterval;
+	const [remaningTime, setRemaningTime] = useState(10000);
 	const [isCounting, setIsCounting] = useState(false);
 
 	const [gameMode, setGameMode] = useState(false);
@@ -43,26 +43,34 @@ const Game = props => {
 		setIsCounting(true)
 	}
 
+	const spyWin = (e) => {
+		props.go(e);
+		clearInterval(flashlightInterval)
+		clearInterval(timerInterval)
+	}
+
 	useEffect(() => {
 		if(players.length !== history.length) {
 			startGame()
 		}
+		setRemaningTime(60 * players.length / 60)
 	}, [])
 
 	useEffect(() => {
-		let interval = setInterval(() => {
-			isCounting &&
-				setRemaningTime(remaningTime - 1)
+		timerInterval = setInterval(() => {
+			console.log("ok");
+				isCounting &&
+					setRemaningTime(remaningTime - 1)
 			},1000)
 
 		if(remaningTime === 0) {
-			clearInterval(interval)
+			clearInterval(timerInterval)
 			flashlightInterval = setInterval(async () => {
 					let flashInfo = await bridge.send("VKWebAppFlashGetInfo").then((data) => data);
 					bridge.send('VKWebAppFlashSetLevel', {level: flashInfo?.level ? 0 : 1});
 			}, 1000)
 		}
-        return () => {clearInterval(interval)};
+        return () => {clearInterval(timerInterval)};
     },[isCounting, remaningTime]);
 
 	return (
@@ -75,17 +83,24 @@ const Game = props => {
 				<Div>
 					<div style={{ display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", marginTop: "40px"}}>
 						<Icon24ClockOutline width={64} height={64} />
-						<span style={{fontSize: "96px"}}>{ remaningTime }</span>
+						<span style={{fontSize: "96px"}}>
+							{ `${Math.floor(remaningTime / 60).toString().padStart(2, '0')} :
+							  ${(remaningTime - Math.floor(remaningTime / 60) * 60).toString().padStart(2, '0')}`
+							}
+						</span>
 					</div>
 				</Div>
-				{
-				remaningTime == 0 &&
 				<Div style={{marginTop: "auto"}}>
+					{
+					remaningTime == 0 ?
 					<Button stretched size="l" mode="primary" onClick={startVote} data-to="vote">
 						Перейти к голосованию
+					</Button> :
+					<Button stretched size="l" mode="destructive" onClick={spyWin} data-to="final">
+						Шпион раскрыл место
 					</Button>
+					}
 				</Div>
-				}
 			</React.Fragment>
 			) :
 			(

@@ -37,21 +37,12 @@ const Final = ({ id, go }) => {
 		<Group header={<Header mode="secondary">Игроки</Header>}>
 			{
 				history.map((player) => (
-					<Div style={{display: "flex", flexDirection: "row", justifyContent: "space-between"}}>
+					<Div key={player.id} style={{display: "flex", flexDirection: "row", justifyContent: "space-between"}}>
 						<Title level='3'>{`${player.name} (${player.role == "spy" ? "Шпион" : "Свой"})`}</Title>
 						<Title level='3'>{`${players.map(player_ => player_.id).includes(player.id) ? "Остался" : "Выбыл"}`}</Title>
 					</Div>
 				))
 			}
-			{/* <CardGrid size="m">
-				{places.map((place) =>
-				<Card key={place.id}>
-					<div style={{height: 96, display: "flex", alignItems: "center", textAlign: "center"}}>
-						<span style={{ margin: "0px auto"}}> {place.label} </span>
-					</div>
-				</Card>
-				)}
-			</CardGrid> */}
 		</Group>
 
 		<Div style={{marginTop: "auto"}}>

@@ -52,7 +52,7 @@ const Lobby = props => {
 	return (
 	<Panel id={props.id}>
 		<PanelHeader
-			left={<PanelHeaderBack onClick={props.go} data-to="home"/>}
+			left={<PanelHeaderBack onClick={props.go} data-to="lobby-setting"/>}
 		>
 			Введите имена
 		</PanelHeader>
